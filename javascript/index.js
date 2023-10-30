@@ -220,7 +220,7 @@ async function makeBroccoli(){
 
   }  
   catch(error){
-    console.log(error)
+    console.error(error)
   }
   
 }
@@ -235,6 +235,7 @@ const stepbr4 = obtainInstruction('brusselsSprouts',4)
 const stepbr5 = obtainInstruction('brusselsSprouts',5)
 const stepbr6 = obtainInstruction('brusselsSprouts',6)
 const stepbr7 = obtainInstruction('brusselsSprouts',7)
+
 Promise.all([stepbr0, stepbr1, stepbr2, stepbr3, stepbr4, stepbr5, stepbr6, stepbr7])
   .then((values)=> {
     console.log("values",values)
@@ -244,5 +245,8 @@ Promise.all([stepbr0, stepbr1, stepbr2, stepbr3, stepbr4, stepbr5, stepbr6, step
     document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussel Sprouts are ready!</li>`
     document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
   })
+  .catch(error){
+    console.error(error)
+  }
 
 
