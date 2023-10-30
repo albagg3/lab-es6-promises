@@ -238,15 +238,14 @@ const stepbr7 = obtainInstruction('brusselsSprouts',7)
 
 Promise.all([stepbr0, stepbr1, stepbr2, stepbr3, stepbr4, stepbr5, stepbr6, stepbr7])
   .then((values)=> {
-    console.log("values",values)
     values.forEach(element => {
       document.querySelector("#brusselsSprouts").innerHTML += `<li>${element}</li>`
     });
     document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussel Sprouts are ready!</li>`
     document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
   })
-  .catch(error){
-    console.error(error)
-  }
+  .catch((error)=>{
+    console.error(error);
+  })
 
 
