@@ -227,16 +227,23 @@ async function makeBroccoli(){
 makeBroccoli();
 // Bonus 2 - Promise all
 // ...
-const stepbr0 = obtainInstruction('brusselsSprouts',0)
-const stepbr1 = obtainInstruction('brusselsSprouts',1)
-const stepbr2 = obtainInstruction('brusselsSprouts',2)
-const stepbr3 = obtainInstruction('brusselsSprouts',3)
-const stepbr4 = obtainInstruction('brusselsSprouts',4)
-const stepbr5 = obtainInstruction('brusselsSprouts',5)
-const stepbr6 = obtainInstruction('brusselsSprouts',6)
-const stepbr7 = obtainInstruction('brusselsSprouts',7)
+promisesArr = [];
+// const stepbr0 = obtainInstruction('brusselsSprouts',0)
+// const stepbr1 = obtainInstruction('brusselsSprouts',1)
+// const stepbr2 = obtainInstruction('brusselsSprouts',2)
+// const stepbr3 = obtainInstruction('brusselsSprouts',3)
+// const stepbr4 = obtainInstruction('brusselsSprouts',4)
+// const stepbr5 = obtainInstruction('brusselsSprouts',5)
+// const stepbr6 = obtainInstruction('brusselsSprouts',6)
+// const stepbr7 = obtainInstruction('brusselsSprouts',7)
 
-Promise.all([stepbr0, stepbr1, stepbr2, stepbr3, stepbr4, stepbr5, stepbr6, stepbr7])
+for(let i = 0; i < 8; i++)
+{
+  const step = obtainInstruction('brusselsSprouts',i)
+  promisesArr.push(step);
+}
+// Promise.all([stepbr0, stepbr1, stepbr2, stepbr3, stepbr4, stepbr5, stepbr6, stepbr7])
+Promise.all(promisesArr)
   .then((values)=> {
     values.forEach(element => {
       document.querySelector("#brusselsSprouts").innerHTML += `<li>${element}</li>`
